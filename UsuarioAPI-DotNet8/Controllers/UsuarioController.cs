@@ -9,14 +9,20 @@ namespace UsuarioAPI_DotNet8.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
+
     public class UsuarioController : ControllerBase
     {
+        
 
         private readonly DataContext _context;
+
+       
 
         public UsuarioController(DataContext context) {
             _context = context;
         }
+      
         [HttpGet]
         public async Task<ActionResult<List<Usuario>>>GetAllUser()
         {
@@ -26,6 +32,8 @@ namespace UsuarioAPI_DotNet8.Controllers
             return Ok(user);
 
         }
+
+
         [HttpGet("{id}")]
         
         public async Task<ActionResult<Usuario>> GetAllNameUser(int id)
@@ -38,6 +46,7 @@ namespace UsuarioAPI_DotNet8.Controllers
             return Ok(user);
 
         }
+
         [HttpPost]
 
         public async Task<ActionResult<List<Usuario>>> AddUser(Usuario user)
@@ -67,6 +76,8 @@ namespace UsuarioAPI_DotNet8.Controllers
             return Ok(await _context.Usuarios.ToListAsync());
 
         }
+
+
         [HttpDelete]
 
         public async Task<ActionResult<List<Usuario>>> DeleteUser(int id)
@@ -82,5 +93,7 @@ namespace UsuarioAPI_DotNet8.Controllers
             return Ok(await _context.Usuarios.ToListAsync());
 
         }
+
+
     }
 }
